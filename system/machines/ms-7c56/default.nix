@@ -9,9 +9,9 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
-    extraModulePackages = pkgs.linuxKernel.packages.linux_6_18.rtl8821cu;
+    extraModulePackages = [ pkgs.linuxKernel.packages.linux_6_18.rtl8821cu ];
 
-    kernelParams = [ "nvidia-drm.modeset=1" ];
+    kernelParams = [ "nvidia-drm.fbdev=1" ];
 
     initrd = {
       systemd.enable = true;
@@ -43,11 +43,11 @@
     modesetting.enable = true;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   services.xserver.enable = true;
-  services.xserver.videoDriver = "modesetting";
+  services.xserver.videoDriver = "nvidia";
 
   networking.hostName = "ms-7c56";
   system.stateVersion = "26.05";

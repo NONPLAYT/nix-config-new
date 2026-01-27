@@ -15,7 +15,7 @@
     "usbhid"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ "8821cu" ];
+  boot.initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" "8821cu" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";

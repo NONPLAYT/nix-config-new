@@ -9,7 +9,7 @@
 
   home.file.".cache/noctalia/wallpapers.json" = {
     text = builtins.toJSON {
-      defaultWallpaper = "./files/wallpaper.png";
+      defaultWallpaper = "/etc/nixos/files/wallpaper.png";
     };
   };
 
