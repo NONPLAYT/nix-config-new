@@ -41,7 +41,7 @@
               home-manager.users = {
                 nonplay = {
                   imports = [
-                    catppuccin.homeManagerModules.catppuccin
+                    catppuccin.homeModules.catppuccin
                   ];
                 };
               };

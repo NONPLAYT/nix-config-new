@@ -30,7 +30,7 @@
       extraEntries = ''
         /Windows 11
           protocol: efi
-          path: guid(c12a7328-f81f-11d2-ba4b-00a0c93ec93b):/EFI/Microsoft/Boot/bootmgfw.efi
+          path: guid(ad996641-37bb-4eb2-b3a6-f16d565e20cb):/EFI/Microsoft/Boot/bootmgfw.efi
       '';
 
       # Catppucin mocha style
