@@ -12,112 +12,51 @@ let
 
   # ~/.mozilla/firefox/PROFILE_NAME/prefs.js | user.js
   settings = {
-    "extensions.autoDisableScopes" = 0;
+    # Compact UI - thin tabs and search bar
+    "browser.uidensity" = 1;
 
-    "app.normandy.first_run" = false;
-    "app.shield.optoutstudies.enabled" = false;
+    # Disable Pocket
+    "extensions.pocket.api" = "";
+    "extensions.pocket.enabled" = false;
+    "extensions.pocket.site" = "";
+    "extensions.pocket.oAuthConsumerKey" = "";
 
-    # disable updates (pretty pointless with nix)
-    "app.update.channel" = "default";
+    # Disable fullscreen animation and ESC warning
+    "full-screen-api.transition-duration.enter" = "0";
+    "full-screen-api.transition-duration.leave" = "0";
+    "full-screen-api.warning.timeout" = 0;
 
-    "browser.contentblocking.category" = "standard"; # "strict"
-    "browser.ctrlTab.recentlyUsedOrder" = false;
-
-    "browser.download.useDownloadDir" = false;
-    "browser.download.viewableInternally.typeWasRegistered.svg" = true;
-    "browser.download.viewableInternally.typeWasRegistered.webp" = true;
-    "browser.download.viewableInternally.typeWasRegistered.xml" = true;
-
-    "browser.search.region" = "RU";
-    "browser.search.widget.inNavBar" = true;
-
-    "browser.shell.checkDefaultBrowser" = false;
-    "browser.tabs.loadInBackground" = true;
-    "browser.urlbar.placeholderName" = "Google";
-    "browser.urlbar.showSearchSuggestionsFirst" = false;
-
-    # disable all the annoying quick actions
-    "browser.urlbar.quickactions.enabled" = false;
-    "browser.urlbar.quickactions.showPrefs" = false;
-    "browser.urlbar.shortcuts.quickactions" = false;
-    "browser.urlbar.suggest.quickactions" = false;
-
-    "browser.startup.homepage_override.mstone" = "ignore";
-    "browser.aboutwelcome.enabled" = false;
-    "toolkit.telemetry.reportingpolicy.firstRun" = false;
-
-    "distribution.searchplugins.defaultLocale" = "en-US";
-
-    "doh-rollout.balrog-migration-done" = true;
-    "doh-rollout.doneFirstRun" = true;
-
-    "dom.forms.autocomplete.formautofill" = false;
-
-    "general.autoScroll" = true;
-    "general.useragent.locale" = "ru-RU";
-
-    "extensions.activeThemeID" = "{fd4fdeb0-5a65-4978-81c5-3488d4d56426}";
-
-    "extensions.update.enabled" = false;
-    "extensions.webcompat.enable_picture_in_picture_overrides" = true;
-    "extensions.webcompat.enable_shims" = true;
-    "extensions.webcompat.perform_injections" = true;
-    "extensions.webcompat.perform_ua_overrides" = true;
-
-    "print.print_footerleft" = "";
-    "print.print_footerright" = "";
-    "print.print_headerleft" = "";
-    "print.print_headerright" = "";
-
+    # Privacy - Do Not Track
+    "privacy.trackingprotection.enabled" = true;
     "privacy.donottrackheader.enabled" = true;
 
-    # Yubikey
-    "security.webauth.u2f" = true;
-    "security.webauth.webauthn" = true;
-    "security.webauth.webauthn_enable_softtoken" = true;
-    "security.webauth.webauthn_enable_usbtoken" = true;
-
-    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-
-    # No session restore
-    "browser.sessionstore.resume_from_crash" = false;
-    "browser.sessionstore.max_resumed_crashes" = 0;
-
-    # No sponsored suggestions
-    "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
-    "browser.urlbar.suggest.quicksuggest.sponsored" = false;
-    "browser.urlbar.quicksuggest.enabled" = false;
-
-    "privacy.sanitize.sanitizeOnShutdown" = true;
-    "privacy.sanitize.pending" =
-      ''[{"id":"shutdown","itemsToClear":["formdata","browsingHistoryAndDownloads"],"options":{}}]'';
-    "browser.bookmarks.file" = "";
-    "privacy.clearOnShutdown_v2.siteSettings" = false;
-    "privacy.clearOnShutdown_v2.cache" = false;
-    "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
-
-    # urlbar suggestions
-    "browser.urlbar.suggest.bookmark" = false;
-    "browser.urlbar.suggest.topsites" = false;
-    "browser.urlbar.suggest.engines" = false;
-
-    "browser.newtabpage.activity-stream.feeds.topsites" = false;
-    "browser.toolbars.bookmarks.visibility" = "never";
-
-    "browser.urlbar.trimURLs" = false;
-    "browser.urlbar.trimHttps" = false;
-    "browser.tabs.closeWindowWithLastTab" = false;
-    "browser.aboutConfig.showWarning" = false;
-
-    "signon.rememberSignons" = false;
-    "signon.autofillForms" = false;
-    "signon.generation.enabled" = false;
-    "signon.management.page.breach-alerts.enabled" = false;
-
-    "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-    "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-
-    "intl.accept_languages" = "ru-RU, ru, en-US, en";
+    # Disable telemetry and crash reports
+    "toolkit.telemetry.archive.enabled" = false;
+    "toolkit.telemetry.bhrPing.enabled" = false;
+    "toolkit.telemetry.cachedClientID" = "";
+    "toolkit.telemetry.firstShutdownPing.enabled" = false;
+    "toolkit.telemetry.hybridContent.enabled" = false;
+    "toolkit.telemetry.newProfilePing.enabled" = false;
+    "toolkit.telemetry.previousBuildID" = "";
+    "toolkit.telemetry.reportingpolicy.firstRun" = false;
+    "toolkit.telemetry.server" = "";
+    "toolkit.telemetry.server_owner" = "";
+    "toolkit.telemetry.shutdownPingSender.enabled" = false;
+    "toolkit.telemetry.unified" = false;
+    "toolkit.telemetry.updatePing.enabled" = false;
+    "datareporting.healthreport.infoURL" = "";
+    "datareporting.healthreport.uploadEnabled" = false;
+    "datareporting.policy.dataSubmissionEnabled" = false;
+    "datareporting.policy.firstRunURL" = "";
+    "browser.tabs.crashReporting.sendReport" = false;
+    "browser.tabs.crashReporting.email" = false;
+    "browser.tabs.crashReporting.emailMe" = false;
+    "breakpad.reportURL" = "";
+    "security.ssl.errorReporting.automatic" = false;
+    "toolkit.crashreporter.infoURL" = "";
+    "network.allow-experiments" = false;
+    "dom.ipc.plugins.reportCrashURL" = false;
+    "dom.ipc.plugins.flash.subprocess.crashreporter.enabled" = false;
   };
 in
 {
